@@ -62,17 +62,12 @@ class Program
             
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
             Event koncert = new Event("Koncert", "2025-05-28");
-           // var newEvent = new Event(jmeno, datum);
            List<Event> eventsList = new List<Event>()
         {   lekce,
             koncert
 
         };
-            foreach (Event name in eventsList)
-            {
-                // name.VypisEvent();
-            }
-
+           
 
 
 
