@@ -26,14 +26,11 @@ class Program
             DatumUdalosti = new DateTime(year, month, day);
         }
     
-
         public void List()
         {
             TimeSpan dny = DatumUdalosti.Date - DateTime.Now.Date;
             Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
         }
-
-
 
         public void Stats()
         {
@@ -44,10 +41,7 @@ class Program
         {
             Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
             string vstupUzivatele = Console.ReadLine();
-            return vstupUzivatele;
-           
-           
-            
+            return vstupUzivatele;   
 
         }
 
@@ -74,7 +68,7 @@ class Program
                 Console.WriteLine("1 - ulozit novou událost");
                 Console.WriteLine("2 - vypsat udalosti");
                 Console.WriteLine("3 - vypsat datum a pocet udalosti");
-                Console.WriteLine("4 - ukoncit aplickaci");
+                Console.WriteLine("4 - ukoncit aplikaci");
                 Console.WriteLine("Uzivateli, zvol akci:");
                 int akce = int.Parse(Console.ReadLine());
 
