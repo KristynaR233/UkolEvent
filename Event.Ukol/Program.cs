@@ -53,13 +53,7 @@ class Program
 
 
         static void Main(string[] args)
-        {
-
-            /*Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
-            string vstupUzivatele = Console.ReadLine();*/
-            
-
-            
+    { 
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
             Event koncert = new Event("Koncert", "2025-05-28");
            List<Event> eventsList = new List<Event>()
@@ -68,8 +62,6 @@ class Program
 
         };
            
-
-
 
             Dictionary<string, int> udalosti = new Dictionary<string, int>
             {
