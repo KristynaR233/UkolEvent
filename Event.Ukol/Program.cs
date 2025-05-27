@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Dynamic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Event.Ukol;
 
@@ -39,28 +40,34 @@ class Program
             Console.WriteLine($"Date:{DatumUdalosti.Date}: events:");
         }
 
+        public static string NactiUdalostOdUzivatele()
+        {
+            Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
+            string vstupUzivatele = Console.ReadLine();
+            return vstupUzivatele;
+           
+           
+            
 
+        }
 
 
         static void Main(string[] args)
         {
 
-            Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
-            string vstupUzivatele = Console.ReadLine();
-            string[] poleVstupu = vstupUzivatele.Split(";");
-            string jmeno = poleVstupu[1];
-            string datum = poleVstupu[2];
+            /*Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
+            string vstupUzivatele = Console.ReadLine();*/
+            
 
-            var newEvent = new Event(jmeno, datum);
+            
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
             Event koncert = new Event("Koncert", "2025-05-28");
-
-            List<Event> eventsList = new List<Event>()
+           // var newEvent = new Event(jmeno, datum);
+           List<Event> eventsList = new List<Event>()
         {   lekce,
             koncert
 
         };
-            eventsList.Add(newEvent);
             foreach (Event name in eventsList)
             {
                 // name.VypisEvent();
@@ -75,40 +82,45 @@ class Program
 
             };
 
-
-            Console.WriteLine("1 - ulozit novou událost");
-            Console.WriteLine("2 - vypsat udalosti");
-            Console.WriteLine("3 - vypsat datum a pocet udalosti");
-            Console.WriteLine("4 - ukoncit aplickaci");
-            Console.WriteLine("Uzivateli, zvol akci:");
-            int akce = int.Parse(Console.ReadLine());
-
-            switch (akce)
+            while (true)
             {
-                case 1:
+                Console.WriteLine("1 - ulozit novou událost");
+                Console.WriteLine("2 - vypsat udalosti");
+                Console.WriteLine("3 - vypsat datum a pocet udalosti");
+                Console.WriteLine("4 - ukoncit aplickaci");
+                Console.WriteLine("Uzivateli, zvol akci:");
+                int akce = int.Parse(Console.ReadLine());
 
-                    break;
+                switch (akce)
+                {
+                    case 1:
+                    string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
+                    string jmeno = poleVstupu[1];
+                    string datum = poleVstupu[2];
+                    var newEvent = new Event(jmeno, datum);
+                    eventsList.Add(newEvent);
+                        break;
+                        
+                    case 2:
+                        foreach (Event name in eventsList)
+                        {
+                            name.List();
+                        }
+                        break;
+                    case 3:
+                        foreach (Event name in eventsList)
+                        {
+                            name.Stats();
+                        }
+                        break;
+                    case 4:
+                        Console.WriteLine("Ukoncuji apikaci");
+                        return;
 
-                case 2:
-                    foreach (Event name in eventsList)
-                    {
-                        name.List();
-                    }
-                    break;
-                case 3:
-                    foreach (Event name in eventsList)
-                    {
-                        name.Stats();
-                    }
-                    break;
-                case 4:
-                    Console.WriteLine("Ukoncuji apikaci");
-                    return;
 
+                }
 
             }
-
-
 
 
         }// endMain      
