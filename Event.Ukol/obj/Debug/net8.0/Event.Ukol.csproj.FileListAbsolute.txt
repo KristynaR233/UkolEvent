@@ -1,0 +1,14 @@
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\bin\Debug\net8.0\Event.Ukol.exe
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\bin\Debug\net8.0\Event.Ukol.deps.json
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\bin\Debug\net8.0\Event.Ukol.runtimeconfig.json
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\bin\Debug\net8.0\Event.Ukol.dll
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\bin\Debug\net8.0\Event.Ukol.pdb
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.AssemblyInfoInputs.cache
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.AssemblyInfo.cs
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.csproj.CoreCompileInputs.cache
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.dll
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\refint\Event.Ukol.dll
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.pdb
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\Event.Ukol.genruntimeconfig.cache
+C:\Users\mikul\Desktop\csharp2\UkolEvent\Event.Ukol\obj\Debug\net8.0\ref\Event.Ukol.dll
