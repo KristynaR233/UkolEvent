@@ -28,15 +28,24 @@ class Program
     
         public void List()
         {
-            TimeSpan dny = DatumUdalosti.Date - DateTime.Now.Date;
-            Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
+            TimeSpan dny = DatumUdalosti - DateTime.Now;
+            if (dny.Days < 0)
+            {
+                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} happened {Math.Abs(dny.Days)} days ago.");
+            }
+            else
+            {
+                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
+            }
+           
         }
 
         public void Stats()
         {
-            Console.WriteLine($"Date:{DatumUdalosti.Date}: events:");
-        }
+            int pocetUdalosti = 0;
+            Console.WriteLine($"Date:{DatumUdalosti.Date}: events:{pocetUdalosti}");
 
+        }
         public static string NactiUdalostOdUzivatele()
         {
             Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
@@ -50,10 +59,13 @@ class Program
     { 
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
             Event koncert = new Event("Koncert", "2025-05-28");
+            Event oslava = new Event("Oslava", "2025-06-15");
+            Event zkouska = new Event("Zkouska", "2025-06-15");
            List<Event> eventsList = new List<Event>()
         {   lekce,
-            koncert
-
+            koncert,
+            oslava,
+            zkouska
         };
            
 
