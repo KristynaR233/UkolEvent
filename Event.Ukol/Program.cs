@@ -25,7 +25,7 @@ class Program
             int day = int.Parse(poleDat[2]);
             DatumUdalosti = new DateTime(year, month, day);
         }
-    
+
         public void List()
         {
             TimeSpan dny = DatumUdalosti - DateTime.Now;
@@ -37,7 +37,7 @@ class Program
             {
                 Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
             }
-           
+
         }
 
         public void Stats()
@@ -50,24 +50,24 @@ class Program
         {
             Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
             string vstupUzivatele = Console.ReadLine();
-            return vstupUzivatele;   
+            return vstupUzivatele;
 
         }
 
 
         static void Main(string[] args)
-    { 
+        {
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
             Event koncert = new Event("Koncert", "2025-05-28");
             Event oslava = new Event("Oslava", "2025-06-15");
             Event zkouska = new Event("Zkouska", "2025-06-15");
-           List<Event> eventsList = new List<Event>()
+            List<Event> eventsList = new List<Event>()
         {   lekce,
             koncert,
             oslava,
             zkouska
         };
-           
+
 
             Dictionary<string, int> udalosti = new Dictionary<string, int>
             {
@@ -87,13 +87,13 @@ class Program
                 switch (akce)
                 {
                     case 1:
-                    string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
-                    string jmeno = poleVstupu[1];
-                    string datum = poleVstupu[2];
-                    var newEvent = new Event(jmeno, datum);
-                    eventsList.Add(newEvent);
+                        string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
+                        string jmeno = poleVstupu[1];
+                        string datum = poleVstupu[2];
+                        var newEvent = new Event(jmeno, datum);
+                        eventsList.Add(newEvent);
                         break;
-                        
+
                     case 2:
                         foreach (Event name in eventsList)
                         {
