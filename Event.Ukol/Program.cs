@@ -44,6 +44,7 @@ class Program
         public void Stats()
         {
             Dictionary<DateTime, int> udalosti = new Dictionary<DateTime, int>();
+           //foreach ( var pocetUdalosti in eventsList.GroupBy)
            
 
             foreach (var polozka in udalosti)
@@ -78,50 +79,54 @@ class Program
             oslava,
             zkouska
         };
-
+            foreach (var pocetUdalosti in eventsList.GroupBy(p => p.Datum))
+            { 
+            
+                }
       
 
           
 
             while (true)
-            {
-                Console.WriteLine("1 - ulozit novou událost");
-                Console.WriteLine("2 - vypsat udalosti");
-                Console.WriteLine("3 - vypsat datum a pocet udalosti");
-                Console.WriteLine("4 - ukoncit aplikaci");
-                Console.WriteLine("Uzivateli, zvol akci:");
-                int akce = int.Parse(Console.ReadLine());
-
-                switch (akce)
                 {
-                    case 1:
-                        string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
-                        string jmeno = poleVstupu[1];
-                        string datum = poleVstupu[2];
-                        var newEvent = new Event(jmeno, datum);
-                        eventsList.Add(newEvent);
-                        break;
+                    Console.WriteLine("1 - ulozit novou událost");
+                    Console.WriteLine("2 - vypsat udalosti");
+                    Console.WriteLine("3 - vypsat datum a pocet udalosti");
+                    Console.WriteLine("4 - ukoncit aplikaci");
+                    Console.WriteLine("Uzivateli, zvol akci:");
+                    int akce = int.Parse(Console.ReadLine());
 
-                    case 2:
-                        foreach (Event name in eventsList)
-                        {
-                            name.List();
-                        }
-                        break;
-                    case 3:
-                        foreach (Event name in eventsList)
-                        {
-                            name.Stats();
-                        }
-                        break;
-                    case 4:
-                        Console.WriteLine("Ukoncuji apikaci");
-                        return;
+                    switch (akce)
+                    {
+                        case 1:
+                            string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
+                            string jmeno = poleVstupu[1];
+                            string datum = poleVstupu[2];
+                            var newEvent = new Event(jmeno, datum);
+                            eventsList.Add(newEvent);
+                            break;
 
+                        case 2:
+                            foreach (Event name in eventsList)
+                            {
+                                name.List();
+                            }
+                            break;
+                        case 3:
+                            foreach (var pocetUdalosti in eventsList.GroupBy(p => p.DatumUdalosti))
+                                {
+                            var cisloUdalosti = pocetUdalosti.Count();
+                                    Console.WriteLine ($"Datum:{pocetUdalosti.Key},:pocet udalosti: {cisloUdalosti}  ");
+                                    }
+                            break;
+                        case 4:
+                            Console.WriteLine("Ukoncuji apikaci");
+                            return;
+
+
+                    }
 
                 }
-
-            }
 
 
         }// endMain      
