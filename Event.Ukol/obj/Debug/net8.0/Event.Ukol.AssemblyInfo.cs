@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Event.Ukol")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ddbeafd22273c54ac7b7dc0976ab1b1248496a7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0f48dff46332dc7cd2577cdb94b4db944335fca")]
 [assembly: System.Reflection.AssemblyProductAttribute("Event.Ukol")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Event.Ukol")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
