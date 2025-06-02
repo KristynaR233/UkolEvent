@@ -24,6 +24,7 @@ class Program
             int month = int.Parse(poleDat[1]);
             int day = int.Parse(poleDat[2]);
             DatumUdalosti = new DateTime(year, month, day);
+            
         }
 
         public void List()
@@ -42,10 +43,19 @@ class Program
 
         public void Stats()
         {
-            int pocetUdalosti = 0;
-            Console.WriteLine($"Date:{DatumUdalosti.Date}: events:{pocetUdalosti}");
+            Dictionary<DateTime, int> udalosti = new Dictionary<DateTime, int>();
+           
+
+            foreach (var polozka in udalosti)
+            {
+                Console.WriteLine($"Date:{polozka.Key}: events:{polozka.Value}");
+            }
+           
 
         }
+          
+
+        
         public static string NactiUdalostOdUzivatele()
         {
             Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
@@ -61,6 +71,7 @@ class Program
             Event koncert = new Event("Koncert", "2025-05-28");
             Event oslava = new Event("Oslava", "2025-06-15");
             Event zkouska = new Event("Zkouska", "2025-06-15");
+
             List<Event> eventsList = new List<Event>()
         {   lekce,
             koncert,
@@ -68,12 +79,9 @@ class Program
             zkouska
         };
 
+      
 
-            Dictionary<string, int> udalosti = new Dictionary<string, int>
-            {
-
-
-            };
+          
 
             while (true)
             {
