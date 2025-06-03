@@ -27,7 +27,7 @@ class Program
             
         }
 
-        public void List()
+        public void VypisUdalostiAKolikDniZbyva()
         {
             TimeSpan dny = DatumUdalosti - DateTime.Now;
             if (dny.Days < 0)
@@ -41,25 +41,12 @@ class Program
 
         }
 
-        public void Stats()
-        {
-            Dictionary<DateTime, int> udalosti = new Dictionary<DateTime, int>();
-           //foreach ( var pocetUdalosti in eventsList.GroupBy)
-           
-
-            foreach (var polozka in udalosti)
-            {
-                Console.WriteLine($"Date:{polozka.Key}: events:{polozka.Value}");
-            }
-           
-
         }
           
 
-        
         public static string NactiUdalostOdUzivatele()
         {
-            Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
+            Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;[event name] ; [event date - yyyy-mm-dd]");
             string vstupUzivatele = Console.ReadLine();
             return vstupUzivatele;
 
@@ -79,57 +66,62 @@ class Program
             oslava,
             zkouska
         };
-            foreach (var pocetUdalosti in eventsList.GroupBy(p => p.Datum))
-            { 
+            var udalosti = new Dictionary<DateTime, int>();
             
-                }
-      
+            foreach (var pocetUdalosti in eventsList.GroupBy(p => p.DatumUdalosti))
+        {
+            var cisloUdalosti = pocetUdalosti.Count();
+            udalosti.Add(pocetUdalosti.Key ,cisloUdalosti);
+        }
+        
+
 
           
 
             while (true)
+            {
+                Console.WriteLine("EVENT - ulozit novou událost");
+                Console.WriteLine("LIST - vypsat udalosti");
+                Console.WriteLine("STATS - vypsat datum a pocet udalosti");
+                Console.WriteLine("END - ukoncit aplikaci");
+                Console.WriteLine("Uzivateli, zvol akci:");
+                string akce = Console.ReadLine().ToUpper();
+
+                switch (akce)
                 {
-                    Console.WriteLine("EVENT - ulozit novou událost");
-                    Console.WriteLine("LIST - vypsat udalosti");
-                    Console.WriteLine("STATS - vypsat datum a pocet udalosti");
-                    Console.WriteLine("END - ukoncit aplikaci");
-                    Console.WriteLine("Uzivateli, zvol akci:");
-                    string akce = Console.ReadLine();
+                    case "EVENT":
+                        string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
+                        string jmeno = poleVstupu[1];
+                        string datum = poleVstupu[2];
+                        var newEvent = new Event(jmeno, datum);
+                        eventsList.Add(newEvent);
+                        break;
 
-                    switch (akce)
-                    {
-                        case "EVENT":
-                            string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
-                            string jmeno = poleVstupu[1];
-                            string datum = poleVstupu[2];
-                            var newEvent = new Event(jmeno, datum);
-                            eventsList.Add(newEvent);
-                            break;
-
-                        case "LIST":
-                            foreach (Event name in eventsList)
+                    case "LIST":
+                        foreach (Event name in eventsList)
+                        {
+                            name.VypisUdalostiAKolikDniZbyva();
+                        }
+                        break;
+                    case "STATS":
+                            foreach (var polozka in udalosti)
                             {
-                                name.List();
-                            }
-                            break;
-                        case "STATS":
-                            foreach (var pocetUdalosti in eventsList.GroupBy(p => p.DatumUdalosti))
-                                {
-                            var cisloUdalosti = pocetUdalosti.Count();
-                                    Console.WriteLine ($"Datum:{pocetUdalosti.Key},:pocet udalosti: {cisloUdalosti}  ");
-                                    }
-                            break;
-                        case "END":
-                            Console.WriteLine("Ukoncuji apikaci");
-                            return;
 
+                         Console.WriteLine($"Date:{polozka.Key}: events:{polozka.Value}");
+                                }
+                        break;
 
-                    }
+                    case "END":
+                        Console.WriteLine("Ukoncuji apikaci");
+                        return;
+
 
                 }
+
+            }
 
 
         }// endMain      
     }
-}// endProgram
+// endProgram
 

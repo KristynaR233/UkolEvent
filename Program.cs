@@ -144,74 +144,74 @@ class Program
 
        
 
-    }
+
     static void Main(string[] args)
-    {
+{
 
-        Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
-        string vstupUzivatele = Console.ReadLine();
-        string[] poleVstupu = vstupUzivatele.Split(";");
-        string jmeno = poleVstupu[1];
-        string datum = poleVstupu[2];
-        
+    Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;jmeno udalosti ;datum ve formatu yyyy-mm-dd");
+    string vstupUzivatele = Console.ReadLine();
+    string[] poleVstupu = vstupUzivatele.Split(";");
+    string jmeno = poleVstupu[1];
+    string datum = poleVstupu[2];
 
 
-        Event lekce = new Event("Lekce Czechitas", "2025-05-29");
-        Event koncert = new Event("Koncert", "2025-05-28");
 
-        List<Event> eventsList = new List<Event>()
+    Event lekce = new Event("Lekce Czechitas", "2025-05-29");
+    Event koncert = new Event("Koncert", "2025-05-28");
+
+    List<Event> eventsList = new List<Event>()
         {   lekce,
             koncert
 
         };
-        foreach (Event name in eventsList)
-        {
-            name.VypisEvent();
-        }
-        
-
-
-
-        Dictionary<string, int> udalosti = new Dictionary<string, int>
-        {
-
-
-        };
-
-
-        Console.WriteLine("1 - ulozit novou událost");
-        Console.WriteLine("2 - vypsat udalosti");
-        Console.WriteLine("3 - vypsat datum a pocet udalosti");
-        Console.WriteLine("4 - ukoncit aplickaci");
-        Console.WriteLine("Uzivateli, zvol akci:");
-        int akce = int.Parse(Console.ReadLine());
-
-        switch (akce)
-        {   case 1:
-                
-                break;
-            case 2:
-                foreach (Event name in eventsList)
-                {
-                    name.List();
-                }
-                break;
-            case 3:
-                foreach (Event name in eventsList)
-                {
-                    name.Stats();
-                }
-                break;
-            case 4:
-                Console.WriteLine("Ukoncuji apikaci");
-                return;
-
-
-        }
+    foreach (Event name in eventsList)
+    {
+        name.VypisEvent();
+    }
 
 
 
 
-    }// endMain      
-} // endProgram
+    Dictionary<string, int> udalosti = new Dictionary<string, int>
+    {
+
+
+    };
+
+
+    Console.WriteLine("1 - ulozit novou událost");
+    Console.WriteLine("2 - vypsat udalosti");
+    Console.WriteLine("3 - vypsat datum a pocet udalosti");
+    Console.WriteLine("4 - ukoncit aplickaci");
+    Console.WriteLine("Uzivateli, zvol akci:");
+    int akce = int.Parse(Console.ReadLine());
+
+    switch (akce)
+    { case 1:
+
+            break;
+        case 2:
+            foreach (Event name in eventsList)
+            {
+                name.List();
+            }
+            break;
+        case 3:
+            foreach (Event name in eventsList)
+            {
+                name.Stats();
+            }
+            break;
+        case 4:
+            Console.WriteLine("Ukoncuji apikaci");
+            return;
+
+
+    }
+
+
+
+
+}// endMain      
+
 
