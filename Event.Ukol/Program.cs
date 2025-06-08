@@ -7,42 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 namespace Event.Ukol;
 
 class Program
-{
-    public class Event
-    {
-        public string Jmeno { get; set; }
-        public string Datum { get; set; }
-
-        public DateTime DatumUdalosti { get; set; }
-
-        public Event(string jmeno, string datum)
-        {
-            Jmeno = jmeno;
-            Datum = datum;
-            string[] poleDat = Datum.Split("-");
-            int year = int.Parse(poleDat[0]);
-            int month = int.Parse(poleDat[1]);
-            int day = int.Parse(poleDat[2]);
-            DatumUdalosti = new DateTime(year, month, day);
-            
-        }
-
-        public void VypisUdalostiAKolikDniZbyva()
-        {
-            TimeSpan dny = DatumUdalosti - DateTime.Now;
-            if (dny.Days < 0)
-            {
-                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} happened {Math.Abs(dny.Days)} days ago.");
-            }
-            else
-            {
-                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
-            }
-
-        }
-
-        }
-          
+{     
 
         public static string NactiUdalostOdUzivatele()
         {
@@ -74,10 +39,6 @@ class Program
             udalosti.Add(pocetUdalosti.Key ,cisloUdalosti);
         }
         
-
-
-          
-
             while (true)
             {
                 Console.WriteLine("EVENT - ulozit novou událost");
