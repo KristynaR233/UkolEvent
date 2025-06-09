@@ -13,10 +13,18 @@ namespace Event.Ukol;
             Jmeno = jmeno;
             Datum = datum;
             string[] poleDat = Datum.Split("-");
+        try
+        {
             int year = int.Parse(poleDat[0]);
             int month = int.Parse(poleDat[1]);
             int day = int.Parse(poleDat[2]);
             DatumUdalosti = new DateTime(year, month, day);
+
+        }
+        catch
+        {
+            throw new InvalidOperationException("Spatne zadany datum udalosti.");
+            }
             
         }
 

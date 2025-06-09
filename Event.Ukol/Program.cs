@@ -51,11 +51,27 @@ class Program
                 switch (akce)
                 {
                     case "EVENT":
+                    try
+                    {
                         string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
                         string jmeno = poleVstupu[1];
                         string datum = poleVstupu[2];
                         var newEvent = new Event(jmeno, datum);
                         eventsList.Add(newEvent);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Nastala chyba:" + ex.Message);
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Udalost zadana ve spatnem formatu. Format musi byt EVENT;[event name] ; [event date - yyyy-mm-dd]");
+                    }
+                        
+                   
+                
+                        
                         break;
 
                     case "LIST":
