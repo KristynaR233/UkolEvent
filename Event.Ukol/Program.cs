@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics.Tracing;
 using System.Dynamic;
@@ -7,17 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 namespace Event.Ukol;
 
 class Program
-{     
-
-        public static string NactiUdalostOdUzivatele()
-        {
-            Console.WriteLine("Uzivateli zadej název a datum udalosti ve formátu: EVENT;[event name] ; [event date - yyyy-mm-dd]");
-            string vstupUzivatele = Console.ReadLine();
-            return vstupUzivatele;
-
-        }
-
-
+{ 
         static void Main(string[] args)
         {
             Event lekce = new Event("Lekce Czechitas", "2025-05-29");
@@ -41,23 +32,24 @@ class Program
         
             while (true)
             {
-                Console.WriteLine("EVENT - ulozit novou událost");
+                Console.WriteLine("Pro ulozeni nove udalosti zadej: EVENT;[jmeno udalosti];[datum udalosti ve formatu- yyyy-mm-dd]");
                 Console.WriteLine("LIST - vypsat udalosti");
                 Console.WriteLine("STATS - vypsat datum a pocet udalosti");
                 Console.WriteLine("END - ukoncit aplikaci");
                 Console.WriteLine("Uzivateli, zvol akci:");
-                string akce = Console.ReadLine().ToUpper();
+                string [] poleAkce = Console.ReadLine().ToUpper().Split(";");
 
-                switch (akce)
+                switch (poleAkce [0])
                 {
                     case "EVENT":
+                   
                     try
-                    {
-                        string[] poleVstupu = NactiUdalostOdUzivatele().Split(";");
-                        string jmeno = poleVstupu[1];
-                        string datum = poleVstupu[2];
-                        var newEvent = new Event(jmeno, datum);
-                        eventsList.Add(newEvent);
+                    {           string[] poleVstupu = poleAkce;
+                                string jmeno = poleVstupu[1];
+                                string datum = poleVstupu[2];
+                                var newEvent = new Event(jmeno, datum);
+                                eventsList.Add(newEvent);
+                  
 
                     }
                     catch (Exception ex)
@@ -68,10 +60,7 @@ class Program
                     {
                         Console.WriteLine("Udalost zadana ve spatnem formatu. Format musi byt EVENT;[event name] ; [event date - yyyy-mm-dd]");
                     }
-                        
-                   
-                
-                        
+
                         break;
 
                     case "LIST":

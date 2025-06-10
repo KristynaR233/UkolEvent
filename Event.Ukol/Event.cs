@@ -18,7 +18,7 @@ namespace Event.Ukol;
             int year = int.Parse(poleDat[0]);
             int month = int.Parse(poleDat[1]);
             int day = int.Parse(poleDat[2]);
-            DatumUdalosti = new DateTime(year, month, day);
+            DatumUdalosti = new DateTime (year, month, day);
 
         }
         catch
@@ -30,14 +30,14 @@ namespace Event.Ukol;
 
         public void VypisUdalostiAKolikDniZbyva()
         {
-            TimeSpan dny = DatumUdalosti - DateTime.Now;
+            TimeSpan dny = DatumUdalosti.Date - DateTime.Now;
             if (dny.Days < 0)
             {
-                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} happened {Math.Abs(dny.Days)} days ago.");
+                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti.ToString("dd.mm.yyyy")} happened {Math.Abs(dny.Days)} days ago.");
             }
             else
             {
-                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti} will happen in {dny.Days} days");
+                Console.WriteLine($"Event {Jmeno} with date {DatumUdalosti.ToString("dd.mm.yyyy")} will happen in {dny.Days} days");
             }
 
         }
